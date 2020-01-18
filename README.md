@@ -29,19 +29,21 @@ using custom firmware. Everything you do with this is at your own risk!
 
 To install `op1repacker` run the following command:
 
-    sudo pip3 install op1repacker
+    pip3 install --user op1repacker
 
 And to upgrade to a new version:
 
-    sudo pip3 install op1repacker --upgrade
+    pip3 install --user --upgrade op1repacker
 
 
 ## Usage
 
 ### Unpack & Repack
 
+```bash
     op1repacker unpack [filename]   # Unpack an OP-1 firmware file.
     op1repacker repack [directory]  # Repack a directory containing unpacked firmware.
+```
 
 The firmware is unpacked to a new folder in the same location as the firmware
 file is. If you unpack the firmware file `op1_218.op1` at `/home/user/op1/`
@@ -54,7 +56,9 @@ location, but the name will be `op1_218-repacked.op1`.
 
 After unpacking a firmware file you can analyze the firmware directory.
 
+```bash
     op1repacker analyze [directory]
+```
 
 Example output:
 
@@ -111,11 +115,15 @@ To enable a mod, first unpack the firmware, then run the following command
 (replace mod_name with the mod you want and [directory] with the location
 of the unpacked firmware) and repack the firmware after that.
 
+```bash
     op1repacker modify [directory] --options mod_name
+```
 
 For example, to enable all mods run this command:
 
+```bash
     op1repacker modify [directory] --options iter presets-iter filter subtle-fx gfx-iter-lab gfx-tape-invert gfx-cwo-moose
+```
 
 More modifications might be added later.
 
